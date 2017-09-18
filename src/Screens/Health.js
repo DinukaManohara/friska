@@ -8,9 +8,10 @@ import {
 } from 'react-native';
 
 const screen = Dimensions.get('window');
-const BUTTON_HEIGHT = (screen.height-106)/5;
-const BUTTON_WIDTH = screen.width-20;
-const BUTTONS = [
+//const BUTTON_HEIGHT = (screen.height-106)/5;
+const BUTTON_WIDTH = (screen.width-25)/2;
+const FULL_CURVE = BUTTON_WIDTH/2
+/*const BUTTONS = [
   {
     id: 1,
     text: 'HEART PULSE',
@@ -35,10 +36,10 @@ const BUTTONS = [
     top: 3*BUTTON_HEIGHT + 40,
     val: 32+'•C'
   }
-];
+];*/
 
 export default class Health extends Component {
-  renderButtons() {
+  /*renderButtons() {
     return BUTTONS.map((buttonInfo) => {
       return(
         <View key={buttonInfo.id} style={[styles.buttonContainer, { top: buttonInfo.top },]}>
@@ -50,12 +51,120 @@ export default class Health extends Component {
         </View>
       );
     });
-  }
+  }*/
 
   render() {
     return(
       <View style={styles.container}>
-        {this.renderButtons()}
+
+        <View style={
+          [styles.buttonContainer,
+          {
+            top: 25,
+            left: 10,
+          },]
+        }>
+          <TouchableOpacity
+            style={[styles.button,
+            {
+              borderBottomRightRadius: 0,
+              borderBottomLeftRadius: 32,
+              borderTopRightRadius: 32,
+              borderTopLeftRadius: 32,
+            },]
+          }>
+            <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>74</Text>
+            <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>BPM</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={
+          [styles.buttonContainer,
+          {
+            top: 25,
+            right: 10,
+          },]
+        }>
+          <TouchableOpacity
+            style={[styles.button,
+            {
+              borderBottomRightRadius: 32,
+              borderBottomLeftRadius: 0,
+              borderTopRightRadius: 32,
+              borderTopLeftRadius: 32,
+            },]
+          }>
+            <Text style={ {position: 'absolute', color: 'rgb(179, 179, 179)', fontSize: 45,} }>31</Text>
+            <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Celcius</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={
+          [styles.buttonContainer,
+          {
+            top: 30+BUTTON_WIDTH,
+            left: 10,
+          },]
+        }>
+          <TouchableOpacity
+            style={[styles.button,
+            {
+              borderBottomRightRadius: 32,
+              borderBottomLeftRadius: 32,
+              borderTopRightRadius: 0,
+              borderTopLeftRadius: 32,
+            },]
+          }>
+            <Text style={ {position: 'absolute', color: 'rgb(179, 179, 179)', fontSize: 45,} }>38</Text>
+            <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Percent</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={
+          [styles.buttonContainer,
+          {
+            top: 30+BUTTON_WIDTH,
+            right: 10,
+          },]
+        }>
+          <TouchableOpacity
+            style={[styles.button,
+            {
+              borderBottomRightRadius: 32,
+              borderBottomLeftRadius: 32,
+              borderTopRightRadius: 32,
+              borderTopLeftRadius: 0,
+            },]
+          }>
+            <Text style={ {position: 'absolute', color: 'rgb(179, 179, 179)', fontSize: 45,} }>32</Text>
+            <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Celcius</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={
+          {
+            position: 'absolute',
+            bottom: 100,
+            width: screen.width-20,
+            height: 35,
+            borderWidth: 1,
+            borderColor: 'rgb(179, 179, 179)',
+            backgroundColor: 'rgb(26, 26, 26)',
+            borderRadius: 17.5,
+          }
+        }>
+          <View style={
+            {
+              position: 'absolute',
+              left: 0,
+              width: (screen.width-20)*0.45,
+              height: 33,
+              backgroundColor: 'rgb(179, 179, 179)',
+              borderRadius: 16.5,
+            }
+          }/>
+        </View>
+
       </View>
     );
   }
@@ -66,26 +175,23 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    backgroundColor: 'rgb(38, 38, 38)',
   },
   button: {
     flex: 1,
-    borderWidth: 2,
-    borderColor: 'rgb(128, 128, 128)',
-    backgroundColor: 'black',
-    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: 'rgb(179, 179, 179)',
+    backgroundColor: 'rgb(26, 26, 26)',
     width: BUTTON_WIDTH,
-    height: BUTTON_HEIGHT,
+    height: BUTTON_WIDTH,
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonContainer: {
-    borderRadius: 40,
     width: BUTTON_WIDTH,
-    height: BUTTON_HEIGHT,
+    height: BUTTON_WIDTH,
     flexDirection: 'row',
     position: 'absolute',
-    left: 10,
     backgroundColor: 'transparent',
   },
 });
