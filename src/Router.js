@@ -46,14 +46,15 @@ export const Tabs = TabNavigator(
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
+    initialRouteName: 'Health',
     tabBarOptions: {
-      activeTintColor: 'rgba(102, 0, 204, 0.8)',
-      inactiveTintColor: 'rgba(0, 0, 0, 0.85)',
+      activeTintColor: 'white',
+      inactiveTintColor: 'rgb(128, 128, 128)',
       showLabel: false,
       showIcon: true,
-      tabStyle: { padding: 10, backgroundColor: 'rgba(255, 255, 255, 0.95)', },
+      tabStyle: { padding: 10, backgroundColor: 'rgb(0, 0, 0)', },
       iconStyle: { height: 26, width: 26, },
-      style: { backgroundColor: 'rgba(255, 255, 255, 0.95)', }
+      style: { backgroundColor: 'rgba(0, 0, 0, 0.9)', }
     },
   }
 );
