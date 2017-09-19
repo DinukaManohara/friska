@@ -7,12 +7,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { Bar } from 'react-native-progress';
+import { Circle } from 'react-native-progress';
 
 const screen = Dimensions.get('window');
 //const BUTTON_HEIGHT = (screen.height-106)/5;
 const BUTTON_WIDTH = (screen.width-30)/2;
-const BOTTOM_BUTTON_HEIGHT = screen.height-(140+2*BUTTON_WIDTH);
+const BOTTOM_BUTTON_HEIGHT = screen.height-(110+2*BUTTON_WIDTH);
 const FULL_CURVE = BUTTON_WIDTH/2
 
 export default class Health extends Component {
@@ -89,47 +89,17 @@ export default class Health extends Component {
           </TouchableOpacity>
         </View>
 
-        <View elevation={5} style={
-          {
-            position: 'absolute',
-            top: 30+2*BUTTON_WIDTH,
-            width: screen.width-20,
-            height: 20,
-            borderWidth: 1,
-            borderColor: 'rgb(26, 26, 26)',
-            backgroundColor: 'white',
-            borderRadius: 10,
-          }
-        }>
-          <View style={
-            {
-              position: 'absolute',
-              left: 0,
-              width: (screen.width-20)*0.45,
-              height: 18,
-              backgroundColor: 'rgb(26, 26, 26)',
-              borderRadius: 9,
-            }
-          }/>
-        </View>
+        <Circle
+          style={ {position: 'absolute', top: 30+2*BUTTON_WIDTH,} }
+          size={BOTTOM_BUTTON_HEIGHT}
+          progress={0.65}
+          showsText={true}
+          thickness={10}
+          color={'rgb(26, 26, 26)'}
+          boderColor={'rgb(26, 26, 26)'}
+          borderWidth={0.5}
+        />
 
-        <View elevation={5} style={
-          {
-            position: 'absolute',
-            left: 10,
-            top: 60+2*BUTTON_WIDTH,
-            width: BUTTON_WIDTH,
-            height: BOTTOM_BUTTON_HEIGHT,
-            borderWidth: 1,
-            borderColor: 'rgb(26, 26, 26)',
-            backgroundColor: 'white',
-            borderRadius: 10,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }
-        }>
-          <Text style={ {color: 'rgb(26, 26, 26)', fontSize: 45,} }>4</Text>
-        </View>
       </View>
     );
   }
