@@ -7,150 +7,98 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import { Bar } from 'react-native-progress';
+
 const screen = Dimensions.get('window');
 //const BUTTON_HEIGHT = (screen.height-106)/5;
-const BUTTON_WIDTH = (screen.width-25)/2;
+const BUTTON_WIDTH = (screen.width-30)/2;
+const BOTTOM_BUTTON_HEIGHT = screen.height-(140+2*BUTTON_WIDTH);
 const FULL_CURVE = BUTTON_WIDTH/2
-/*const BUTTONS = [
-  {
-    id: 1,
-    text: 'HEART PULSE',
-    top: 10,
-    val: 74
-  },
-  {
-    id: 2,
-    text: 'BODY TEMP',
-    top: BUTTON_HEIGHT + 20,
-    val: 31+'•C'
-  },
-  {
-    id: 3,
-    text: 'SURROUNDING HUMIDITY',
-    top: 2*BUTTON_HEIGHT + 30,
-    val: '38%'
-  },
-  {
-    id: 4,
-    text: 'SURROUNDING TEMPERATURE',
-    top: 3*BUTTON_HEIGHT + 40,
-    val: 32+'•C'
-  }
-];*/
 
 export default class Health extends Component {
-  /*renderButtons() {
-    return BUTTONS.map((buttonInfo) => {
-      return(
-        <View key={buttonInfo.id} style={[styles.buttonContainer, { top: buttonInfo.top },]}>
-          <TouchableOpacity
-            style={styles.button}
-          >
-            <Text style={ {position: 'absolute', color: 'rgb(128, 128, 128)', fontSize: 45,} }>{buttonInfo.val}</Text>
-          </TouchableOpacity>
-        </View>
-      );
-    });
-  }*/
 
   render() {
     return(
       <View style={styles.container}>
 
-        <View style={
+        <View elevation={15} style={
           [styles.buttonContainer,
           {
-            top: 25,
+            top: 10,
             left: 10,
+            borderBottomRightRadius: 0,
+            borderBottomLeftRadius: 32,
+            borderTopRightRadius: 32,
+            borderTopLeftRadius: 32,
           },]
         }>
-          <TouchableOpacity
-            style={[styles.button,
-            {
-              borderBottomRightRadius: 0,
-              borderBottomLeftRadius: 32,
-              borderTopRightRadius: 32,
-              borderTopLeftRadius: 32,
-            },]
-          }>
+          <TouchableOpacity style={ styles.button } >
             <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>74</Text>
             <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>BPM</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={
+        <View elevation={15} style={
           [styles.buttonContainer,
           {
-            top: 25,
+            top: 10,
             right: 10,
+            borderBottomRightRadius: 32,
+            borderBottomLeftRadius: 0,
+            borderTopRightRadius: 32,
+            borderTopLeftRadius: 32,
           },]
         }>
-          <TouchableOpacity
-            style={[styles.button,
-            {
-              borderBottomRightRadius: 32,
-              borderBottomLeftRadius: 0,
-              borderTopRightRadius: 32,
-              borderTopLeftRadius: 32,
-            },]
-          }>
-            <Text style={ {position: 'absolute', color: 'rgb(179, 179, 179)', fontSize: 45,} }>31</Text>
+          <TouchableOpacity style={ styles.button } >
+            <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>31</Text>
             <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Celcius</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={
+        <View elevation={15} style={
           [styles.buttonContainer,
           {
-            top: 30+BUTTON_WIDTH,
+            top: 20+BUTTON_WIDTH,
             left: 10,
+            borderBottomRightRadius: 32,
+            borderBottomLeftRadius: 32,
+            borderTopRightRadius: 0,
+            borderTopLeftRadius: 32,
           },]
         }>
-          <TouchableOpacity
-            style={[styles.button,
-            {
-              borderBottomRightRadius: 32,
-              borderBottomLeftRadius: 32,
-              borderTopRightRadius: 0,
-              borderTopLeftRadius: 32,
-            },]
-          }>
-            <Text style={ {position: 'absolute', color: 'rgb(179, 179, 179)', fontSize: 45,} }>38</Text>
+          <TouchableOpacity style={ styles.button } >
+            <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>38</Text>
             <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Percent</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={
+        <View elevation={15} style={
           [styles.buttonContainer,
           {
-            top: 30+BUTTON_WIDTH,
+            top: 20+BUTTON_WIDTH,
             right: 10,
+            borderBottomRightRadius: 32,
+            borderBottomLeftRadius: 32,
+            borderTopRightRadius: 32,
+            borderTopLeftRadius: 0,
           },]
         }>
-          <TouchableOpacity
-            style={[styles.button,
-            {
-              borderBottomRightRadius: 32,
-              borderBottomLeftRadius: 32,
-              borderTopRightRadius: 32,
-              borderTopLeftRadius: 0,
-            },]
-          }>
-            <Text style={ {position: 'absolute', color: 'rgb(179, 179, 179)', fontSize: 45,} }>32</Text>
+          <TouchableOpacity style={ styles.button } >
+            <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>32</Text>
             <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Celcius</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={
+        <View elevation={5} style={
           {
             position: 'absolute',
-            bottom: 100,
+            top: 30+2*BUTTON_WIDTH,
             width: screen.width-20,
-            height: 35,
+            height: 20,
             borderWidth: 1,
-            borderColor: 'rgb(179, 179, 179)',
-            backgroundColor: 'rgb(26, 26, 26)',
-            borderRadius: 17.5,
+            borderColor: 'rgb(26, 26, 26)',
+            backgroundColor: 'white',
+            borderRadius: 10,
           }
         }>
           <View style={
@@ -158,13 +106,30 @@ export default class Health extends Component {
               position: 'absolute',
               left: 0,
               width: (screen.width-20)*0.45,
-              height: 33,
-              backgroundColor: 'rgb(179, 179, 179)',
-              borderRadius: 16.5,
+              height: 18,
+              backgroundColor: 'rgb(26, 26, 26)',
+              borderRadius: 9,
             }
           }/>
         </View>
 
+        <View elevation={5} style={
+          {
+            position: 'absolute',
+            left: 10,
+            top: 60+2*BUTTON_WIDTH,
+            width: BUTTON_WIDTH,
+            height: BOTTOM_BUTTON_HEIGHT,
+            borderWidth: 1,
+            borderColor: 'rgb(26, 26, 26)',
+            backgroundColor: 'white',
+            borderRadius: 10,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }
+        }>
+          <Text style={ {color: 'rgb(26, 26, 26)', fontSize: 45,} }>4</Text>
+        </View>
       </View>
     );
   }
@@ -175,13 +140,11 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: 'rgb(38, 38, 38)',
+    backgroundColor: 'white',
   },
   button: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: 'rgb(179, 179, 179)',
-    backgroundColor: 'rgb(26, 26, 26)',
+    backgroundColor: 'transparent',
     width: BUTTON_WIDTH,
     height: BUTTON_WIDTH,
     alignItems: 'center',
@@ -192,6 +155,6 @@ const styles = StyleSheet.create({
     height: BUTTON_WIDTH,
     flexDirection: 'row',
     position: 'absolute',
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgb(26, 26, 26)',
   },
 });
