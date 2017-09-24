@@ -22,7 +22,9 @@ export default class FloatingButton extends Component{
   }
 
   componentDidMount() {
-    this.startAnimation();
+    setTimeout(() => {
+      this.startAnimation();
+    },100);
   }
 
   startAnimation() {
@@ -36,7 +38,7 @@ export default class FloatingButton extends Component{
       {
         toValue: { x: endLeftPos, y: endTopPos },
         bounciness: 25,
-        speed: 10,
+        speed: 2,
       }
     ).start();
   }

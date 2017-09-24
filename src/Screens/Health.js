@@ -88,8 +88,9 @@ export default class Health extends Component {
         <Circle
           style={ {position: 'absolute', top: 30+2*BUTTON_WIDTH,} }
           size={BOTTOM_BUTTON_HEIGHT}
-          progress={0.65}
+          progress={0.75}
           showsText={true}
+          formatText={(progress) => { return 75 + '%'; }}
           thickness={10}
           color={'rgb(26, 26, 26)'}
           boderColor={'rgb(26, 26, 26)'}
