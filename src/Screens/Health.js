@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import { Circle } from 'react-native-progress';
+import FloatingButton from './CustomComponents/FloatingButton.js';
 
 const screen = Dimensions.get('window');
 //const BUTTON_HEIGHT = (screen.height-106)/5;
@@ -20,74 +21,69 @@ export default class Health extends Component {
   render() {
     return(
       <View style={styles.container}>
+        <FloatingButton
+          initTopPos={15}
+          initLeftPos={15}
+          endTopPos={10}
+          endLeftPos={10}
+          containerStyle={styles.buttonContainer}
+          buttonStyle={styles.button}
+          shaping={{ borderBottomRightRadius: 0,
+                    borderBottomLeftRadius: 32,
+                    borderTopRightRadius: 32,
+                    borderTopLeftRadius: 32,
+                  }}
+          val={74}
+          unit={'BPM'}
+        />
 
-        <View elevation={15} style={
-          [styles.buttonContainer,
-          {
-            top: 10,
-            left: 10,
-            borderBottomRightRadius: 0,
-            borderBottomLeftRadius: 32,
-            borderTopRightRadius: 32,
-            borderTopLeftRadius: 32,
-          },]
-        }>
-          <TouchableOpacity style={ styles.button } >
-            <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>74</Text>
-            <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>BPM</Text>
-          </TouchableOpacity>
-        </View>
+        <FloatingButton
+          initTopPos={15}
+          initLeftPos={15+BUTTON_WIDTH}
+          endTopPos={10}
+          endLeftPos={20+BUTTON_WIDTH}
+          containerStyle={styles.buttonContainer}
+          buttonStyle={styles.button}
+          shaping={{ borderBottomRightRadius: 32,
+                    borderBottomLeftRadius: 0,
+                    borderTopRightRadius: 32,
+                    borderTopLeftRadius: 32,
+                  }}
+          val={31}
+          unit={'Celcius'}
+        />
 
-        <View elevation={15} style={
-          [styles.buttonContainer,
-          {
-            top: 10,
-            right: 10,
-            borderBottomRightRadius: 32,
-            borderBottomLeftRadius: 0,
-            borderTopRightRadius: 32,
-            borderTopLeftRadius: 32,
-          },]
-        }>
-          <TouchableOpacity style={ styles.button } >
-            <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>31</Text>
-            <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Celcius</Text>
-          </TouchableOpacity>
-        </View>
+        <FloatingButton
+          initTopPos={15+BUTTON_WIDTH}
+          initLeftPos={15}
+          endTopPos={20+BUTTON_WIDTH}
+          endLeftPos={10}
+          containerStyle={styles.buttonContainer}
+          buttonStyle={styles.button}
+          shaping={{ borderBottomRightRadius: 32,
+                    borderBottomLeftRadius: 32,
+                    borderTopRightRadius: 0,
+                    borderTopLeftRadius: 32,
+                  }}
+          val={38}
+          unit={'Percent'}
+        />
 
-        <View elevation={15} style={
-          [styles.buttonContainer,
-          {
-            top: 20+BUTTON_WIDTH,
-            left: 10,
-            borderBottomRightRadius: 32,
-            borderBottomLeftRadius: 32,
-            borderTopRightRadius: 0,
-            borderTopLeftRadius: 32,
-          },]
-        }>
-          <TouchableOpacity style={ styles.button } >
-            <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>38</Text>
-            <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Percent</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View elevation={15} style={
-          [styles.buttonContainer,
-          {
-            top: 20+BUTTON_WIDTH,
-            right: 10,
-            borderBottomRightRadius: 32,
-            borderBottomLeftRadius: 32,
-            borderTopRightRadius: 32,
-            borderTopLeftRadius: 0,
-          },]
-        }>
-          <TouchableOpacity style={ styles.button } >
-            <Text style={ {color: 'rgb(179, 179, 179)', fontSize: 45,} }>32</Text>
-            <Text style={ {position: 'absolute', top: 105, color: 'rgb(179, 179, 179)', fontSize: 14,} }>Celcius</Text>
-          </TouchableOpacity>
-        </View>
+        <FloatingButton
+          initTopPos={15+BUTTON_WIDTH}
+          initLeftPos={15+BUTTON_WIDTH}
+          endTopPos={20+BUTTON_WIDTH}
+          endLeftPos={20+BUTTON_WIDTH}
+          containerStyle={styles.buttonContainer}
+          buttonStyle={styles.button}
+          shaping={{ borderBottomRightRadius: 32,
+                    borderBottomLeftRadius: 32,
+                    borderTopRightRadius: 32,
+                    borderTopLeftRadius: 0,
+                  }}
+          val={32}
+          unit={'Celcius'}
+        />
 
         <Circle
           style={ {position: 'absolute', top: 30+2*BUTTON_WIDTH,} }
